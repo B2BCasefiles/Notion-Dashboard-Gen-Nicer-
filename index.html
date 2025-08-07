@@ -402,6 +402,51 @@
             overflow: hidden;
         }
         
+        /* Plan Selection Styles */
+        .plan-option {
+            transition: all 0.3s var(--anim-timing-ease);
+        }
+        
+        .plan-option:hover {
+            transform: translateY(-2px);
+        }
+        
+        input[type="radio"]:checked + .plan-option {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+        }
+        
+        /* Paid form input styles */
+        .paid-input-modern {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 18px;
+            padding: 18px 24px;
+            transition: all 0.5s var(--anim-timing-ease);
+            font-size: 16px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .paid-input-modern::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .paid-input-modern:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1);
+            outline: none;
+            transform: translateY(-2px);
+        }
+        
+        .paid-input-modern:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-1px);
+        }
+        
         .input-modern::before {
             content: '';
             position: absolute;
@@ -764,26 +809,64 @@
                         <p class="text-white/90 text-lg group-hover:text-white transition-colors duration-500">Get priority early access</p>
                     </div>
                     
-                    <!-- LemonSqueezy Paid Waitlist Buttons -->
-                    <div class="flex flex-col gap-4 mt-4 mb-8 relative z-10">
-                        <a
-                            href="https://app-nicer.lemonsqueezy.com/buy/3cd8fe9f-9a10-43f7-a475-4d2a02cade9b"
-                            target="_blank"
-                            rel="noopener"
-                            class="btn-modern w-full text-center font-semibold text-lg py-4"
-                            style="margin-bottom: 8px;"
-                        >
-                            Subscribe Monthly – $20/mo
-                        </a>
-                        <a
-                            href="https://app-nicer.lemonsqueezy.com/buy/0106a30d-9d63-424b-a6e1-0ce26e01d932"
-                            target="_blank"
-                            rel="noopener"
-                            class="btn-modern w-full text-center font-semibold text-lg py-4"
-                        >
-                            Subscribe Yearly – $200/yr
-                        </a>
-                    </div>
+                    <!-- Paid Waitlist Form -->
+                    <form id="paidForm" class="space-y-6">
+                        <div class="space-y-3">
+                            <label for="paid-name" class="sr-only">Your name</label>
+                            <input 
+                                type="text" 
+                                id="paid-name"
+                                name="name" 
+                                placeholder="Your name" 
+                                class="w-full paid-input-modern text-lg py-4 px-6" 
+                                required 
+                                aria-required="true"
+                                aria-describedby="paid-name-error"
+                            >
+                            <div id="paid-name-error" class="text-red-300 text-sm hidden" role="alert"></div>
+                        </div>
+                        <div class="space-y-3">
+                            <label for="paid-email" class="sr-only">Your email</label>
+                            <input 
+                                type="email" 
+                                id="paid-email"
+                                name="email" 
+                                placeholder="Your email" 
+                                class="w-full paid-input-modern text-lg py-4 px-6" 
+                                required 
+                                aria-required="true"
+                                aria-describedby="paid-email-error"
+                            >
+                            <div id="paid-email-error" class="text-red-300 text-sm hidden" role="alert"></div>
+                        </div>
+                        
+                        <!-- Plan Selection -->
+                        <div class="space-y-3">
+                            <label class="block text-white/90 text-sm font-medium mb-2">Select your plan:</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <label class="relative">
+                                    <input type="radio" name="plan" value="monthly" class="sr-only" required>
+                                    <div class="plan-option bg-white/10 border-2 border-white/20 rounded-xl p-4 text-center cursor-pointer transition-all duration-300 hover:bg-white/20 hover:border-white/40">
+                                        <div class="text-white font-semibold">Monthly</div>
+                                        <div class="text-white/80 text-sm">$20/mo</div>
+                                    </div>
+                                </label>
+                                <label class="relative">
+                                    <input type="radio" name="plan" value="yearly" class="sr-only" required>
+                                    <div class="plan-option bg-white/10 border-2 border-white/20 rounded-xl p-4 text-center cursor-pointer transition-all duration-300 hover:bg-white/20 hover:border-white/40">
+                                        <div class="text-white font-semibold">Yearly</div>
+                                        <div class="text-white/80 text-sm">$200/yr</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="button" id="joinProButton" class="w-full btn-modern text-lg py-4 font-semibold group-hover:shadow-xl group-hover:shadow-white/20 transition-all duration-500" aria-describedby="paid-submit-status">
+                            <span class="paid-submit-text">Join Pro Founders Club</span>
+                            <span class="paid-loading-text hidden" aria-hidden="true">Processing...</span>
+                        </button>
+                        <div id="paid-submit-status" class="sr-only" role="status" aria-live="polite"></div>
+                    </form>
                     
                     <div class="flex items-center justify-center space-x-3 text-sm text-white/80 relative z-10">
                         <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
@@ -1400,6 +1483,99 @@
             // Formspree will handle validation and redirect
         }
         
+        // Paid form submission with payment redirection
+        const paidForm = document.getElementById('paidForm');
+        const joinProButton = document.getElementById('joinProButton');
+        
+        if (joinProButton) {
+            joinProButton.addEventListener('click', function() {
+                // Validate form
+                const name = document.getElementById('paid-name').value.trim();
+                const email = document.getElementById('paid-email').value.trim();
+                const selectedPlan = document.querySelector('input[name="plan"]:checked');
+                
+                // Clear previous errors
+                document.querySelectorAll('.text-red-300').forEach(el => el.classList.add('hidden'));
+                
+                let isValid = true;
+                
+                // Validate name
+                if (!name) {
+                    document.getElementById('paid-name-error').textContent = 'Name is required';
+                    document.getElementById('paid-name-error').classList.remove('hidden');
+                    isValid = false;
+                }
+                
+                // Validate email
+                if (!email) {
+                    document.getElementById('paid-email-error').textContent = 'Email is required';
+                    document.getElementById('paid-email-error').classList.remove('hidden');
+                    isValid = false;
+                } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    document.getElementById('paid-email-error').textContent = 'Please enter a valid email';
+                    document.getElementById('paid-email-error').classList.remove('hidden');
+                    isValid = false;
+                }
+                
+                // Validate plan selection
+                if (!selectedPlan) {
+                    // Show error for plan selection
+                    const planError = document.createElement('div');
+                    planError.className = 'text-red-300 text-sm';
+                    planError.textContent = 'Please select a plan';
+                    document.querySelector('.grid.grid-cols-2').parentNode.appendChild(planError);
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    // Show loading state
+                    const submitText = this.querySelector('.paid-submit-text');
+                    const loadingText = this.querySelector('.paid-loading-text');
+                    submitText.classList.add('hidden');
+                    loadingText.classList.remove('hidden');
+                    this.disabled = true;
+                    
+                    // Store form data in localStorage for after payment
+                    const formData = {
+                        name: name,
+                        email: email,
+                        plan: selectedPlan.value
+                    };
+                    localStorage.setItem('nicerPaidFormData', JSON.stringify(formData));
+                    
+                    // Redirect to payment based on selected plan
+                    const paymentUrl = selectedPlan.value === 'monthly' 
+                        ? 'https://app-nicer.lemonsqueezy.com/buy/3cd8fe9f-9a10-43f7-a475-4d2a02cade9b'
+                        : 'https://app-nicer.lemonsqueezy.com/buy/0106a30d-9d63-424b-a6e1-0ce26e01d932';
+                    
+                    // Open payment in new window/tab
+                    window.open(paymentUrl, '_blank');
+                    
+                    // Reset form after a short delay
+                    setTimeout(() => {
+                        submitText.classList.remove('hidden');
+                        loadingText.classList.add('hidden');
+                        this.disabled = false;
+                    }, 2000);
+                }
+            });
+        }
+        
+        // Plan selection functionality
+        document.querySelectorAll('input[name="plan"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                // Remove active class from all plan options
+                document.querySelectorAll('.plan-option').forEach(option => {
+                    option.classList.remove('active');
+                });
+                
+                // Add active class to selected plan option
+                if (this.checked) {
+                    this.nextElementSibling.classList.add('active');
+                }
+            });
+        });
+        
 
         
         // Professional hover animations for buttons
@@ -1467,111 +1643,61 @@
             });
         }
         
-        // Handle paid subscription with proper form
-        window.handlePaidSubscription = async (plan) => {
-            // Create a modal form instead of using prompt/alert
-            const modal = document.createElement('div');
-            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
-            modal.setAttribute('role', 'dialog');
-            modal.setAttribute('aria-modal', 'true');
-            modal.setAttribute('aria-labelledby', 'paid-modal-title');
-            
-            modal.innerHTML = `
-                <div class="card-modern p-8 max-w-md mx-4 text-center" role="document">
-                    <h3 id="paid-modal-title" class="text-2xl font-bold text-gray-900 mb-4">Join Pro Founders Club</h3>
-                    <form id="paidForm" class="space-y-4" action="https://formspree.io/f/mjkoaebb" method="POST">
-                        <input type="hidden" name="_redirect" value="https://nicer.app/thank-you.html">
-                        <input type="hidden" name="plan" value="${plan}">
-                        <div class="space-y-2">
-                            <label for="paid-name" class="block text-sm font-medium text-gray-700 text-left">Name</label>
-                            <input 
-                                type="text" 
-                                id="paid-name"
-                                name="name" 
-                                class="w-full input-modern" 
-                                required 
-                                aria-required="true"
-                            >
-                        </div>
-                        <div class="space-y-2">
-                            <label for="paid-email" class="block text-sm font-medium text-gray-700 text-left">Email</label>
-                            <input 
-                                type="email" 
-                                id="paid-email"
-                                name="email" 
-                                class="w-full input-modern" 
-                                required 
-                                aria-required="true"
-                            >
-                        </div>
-                        <div class="flex space-x-3 mt-6">
-                            <button type="submit" class="flex-1 btn-modern">
-                                Join ${plan === 'monthly' ? 'Monthly' : 'Yearly'} Plan
-                            </button>
-                            <button type="button" onclick="closePaidModal()" class="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors">
-                                Cancel
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            `;
-            
-            document.body.appendChild(modal);
-            
-            // Animate modal entrance
-            gsap.fromTo(modal, {
-                opacity: 0,
-                scale: 0.9
-            }, {
-                opacity: 1,
-                scale: 1,
-                duration: 0.4,
-                ease: 'power2.out'
-            });
-            
-            // Focus the first input
-            const firstInput = modal.querySelector('#paid-name');
-            firstInput.focus();
-            
-            // Handle form submission - let Formspree handle it
-            const form = modal.querySelector('#paidForm');
-            form.addEventListener('submit', (e) => {
-                // Let the form submit naturally to Formspree
-                // Formspree will handle validation and redirect
-                closePaidModal();
-            });
-            
-            // Handle escape key
-            const handleEscape = (e) => {
-                if (e.key === 'Escape') {
-                    closePaidModal();
-                }
-            };
-            document.addEventListener('keydown', handleEscape);
-            
-            // Store references for cleanup
-            modal._handleEscape = handleEscape;
-        };
+
         
-        // Close paid modal
-        window.closePaidModal = () => {
-            const modal = document.querySelector('.fixed.inset-0.bg-black.bg-opacity-50.flex');
-            if (modal) {
-                // Animate modal exit
-                gsap.to(modal, {
-                    opacity: 0,
-                    scale: 0.9,
-                    duration: 0.3,
-                    ease: 'power2.in',
-                    onComplete: () => {
-                        document.removeEventListener('keydown', modal._handleEscape);
-                        modal.remove();
-                    }
-                });
+
+        
+        // Function to submit paid form data to Formspree after payment
+        window.submitPaidFormToFormspree = function() {
+            const storedData = localStorage.getItem('nicerPaidFormData');
+            if (storedData) {
+                const formData = JSON.parse(storedData);
+                
+                // Create a hidden form to submit to Formspree
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = 'https://formspree.io/f/mjkoaebb';
+                form.style.display = 'none';
+                
+                // Add form fields
+                const nameInput = document.createElement('input');
+                nameInput.type = 'hidden';
+                nameInput.name = 'name';
+                nameInput.value = formData.name;
+                form.appendChild(nameInput);
+                
+                const emailInput = document.createElement('input');
+                emailInput.type = 'hidden';
+                emailInput.name = 'email';
+                emailInput.value = formData.email;
+                form.appendChild(emailInput);
+                
+                const planInput = document.createElement('input');
+                planInput.type = 'hidden';
+                planInput.name = 'plan';
+                planInput.value = formData.plan;
+                form.appendChild(planInput);
+                
+                const redirectInput = document.createElement('input');
+                redirectInput.type = 'hidden';
+                redirectInput.name = '_redirect';
+                redirectInput.value = 'https://nicer.app/thank-you.html';
+                form.appendChild(redirectInput);
+                
+                // Submit the form
+                document.body.appendChild(form);
+                form.submit();
+                
+                // Clean up stored data
+                localStorage.removeItem('nicerPaidFormData');
             }
         };
         
-
+        // Check if user is returning from payment (you can customize this logic)
+        // This could be triggered by a URL parameter or other mechanism
+        if (window.location.search.includes('payment_success=true')) {
+            window.submitPaidFormToFormspree();
+        }
         
         // Cleanup function for page unload
         window.addEventListener('beforeunload', () => {
