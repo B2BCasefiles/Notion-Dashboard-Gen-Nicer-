@@ -141,7 +141,7 @@
         }
         
         .hero-gradient {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+            background: linear-gradient(135deg, #0e0e0e 0%, #0a0a0a 50%, #050505 100%);
         }
         
         .modern-gradient {
@@ -585,15 +585,15 @@
         /* Mobile Optimizations */
         @media (max-width: 640px) {
             .hero-gradient {
-                background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+                background: linear-gradient(135deg, #0e0e0e 0%, #0a0a0a 100%);
             }
             
             .section-modern {
-                background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+                background: linear-gradient(135deg, #121212 0%, #0a0a0a 100%);
             }
             
             .section-light {
-                background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+                background: linear-gradient(135deg, #111111 0%, #0f0f0f 100%);
             }
             
             .btn-modern {
@@ -631,6 +631,19 @@
                 font-size: 1.25rem;
             }
         }
+        /* Mobile dark overrides */
+        @media (max-width: 640px) {
+            .faq-item .faq-toggle span { color: #f9fafb !important; }
+            .text-gray-900 { color: #f9fafb !important; }
+            .text-gray-700 { color: #e5e7eb !important; }
+            .text-gray-600 { color: #d1d5db !important; }
+            .text-gray-500 { color: #9ca3af !important; }
+            .bg-white { background-color: #111111 !important; }
+            .hover\:bg-gray-50:hover { background-color: rgba(255,255,255,0.06) !important; }
+            .border-gray-100 { border-color: rgba(255,255,255,0.1) !important; }
+            #form-loader { background: rgba(0,0,0,0.6) !important; }
+            #form-success { background: rgba(0,0,0,0.7) !important; }
+        }
     </style>
 </head>
 <body class="font-sans text-gray-100 bg-black">
@@ -653,7 +666,7 @@
                 <!-- Mobile Menu Button -->
                 <button 
                     id="mobile-menu-button"
-                    class="md:hidden p-2 rounded-lg text-gray-600 hover:text-nicer-green hover:bg-gray-100 transition-colors"
+                    class="md:hidden p-2 rounded-lg text-gray-300 hover:text-nicer-green hover:bg-white/10 transition-colors"
                     aria-label="Toggle mobile menu"
                     aria-expanded="false"
                     aria-controls="mobile-menu"
@@ -666,10 +679,10 @@
             
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="md:hidden hidden">
-                <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
-                    <a href="#features" class="block px-3 py-2 text-gray-600 hover:text-nicer-green hover:bg-gray-50 rounded-md transition-colors">Features</a>
-                    <a href="#how-it-works" class="block px-3 py-2 text-gray-600 hover:text-nicer-green hover:bg-gray-50 rounded-md transition-colors">How it Works</a>
-                    <a href="#faq" class="block px-3 py-2 text-gray-600 hover:text-nicer-green hover:bg-gray-50 rounded-md transition-colors">FAQ</a>
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-black/90 border-t border-white/10">
+                    <a href="#features" class="block px-3 py-2 text-gray-300 hover:text-nicer-green hover:bg-white/10 rounded-md transition-colors">Features</a>
+                    <a href="#how-it-works" class="block px-3 py-2 text-gray-300 hover:text-nicer-green hover:bg-white/10 rounded-md transition-colors">How it Works</a>
+                    <a href="#faq" class="block px-3 py-2 text-gray-300 hover:text-nicer-green hover:bg-white/10 rounded-md transition-colors">FAQ</a>
                 </div>
             </div>
         </div>
