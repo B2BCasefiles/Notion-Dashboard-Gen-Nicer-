@@ -54,6 +54,7 @@
                 }
             }
         }
+        
     </script>
     <style>
         /* CSS Variables for Animation Timing - Professional */
@@ -66,6 +67,7 @@
             --anim-timing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
             --anim-timing-liquid: cubic-bezier(0.25, 0.8, 0.25, 1);
             --anim-timing-butter: cubic-bezier(0.4, 0, 0.2, 1);
+            
         }
 
         /* Optimized Keyframes - Only Essential Animations */
@@ -210,17 +212,17 @@
             transition: all 0.5s var(--anim-timing-ease);
             opacity: 1 !important;
             visibility: visible !important;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(30, 30, 30, 0.95);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transform: translateZ(0);
             will-change: transform, opacity;
         }
         
         .feature-card:hover {
             transform: translateY(-12px) scale(1.03);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            background: rgba(40, 40, 40, 1);
         }
         
         /* Timeline Items */
@@ -251,7 +253,7 @@
         /* Optimized FAQ Items */
         .faq-item {
             transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(30, 30, 30, 0.95);
             backdrop-filter: blur(10px);
             opacity: 1 !important;
             visibility: visible !important;
@@ -260,7 +262,7 @@
         
         .faq-item:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
         }
         
         .faq-content {
@@ -303,7 +305,7 @@
         
         /* Professional Gradient Text */
         .gradient-text {
-            background: linear-gradient(135deg, #10B981, #059669, #047857);
+            background: linear-gradient(135deg, #b6b910, #968705, #787004);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -337,19 +339,19 @@
         
         /* Enhanced Navigation */
         .nav-glass {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(0, 0, 0, 0.8);
             -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         /* Enhanced Sections */
         .section-modern {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            background: linear-gradient(135deg, #121212 0%, #0a0a0a 100%);
         }
         
         .section-light {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            background: linear-gradient(135deg, #111111 0%, #0f0f0f 100%);
         }
         
         /* Enhanced Buttons */
@@ -478,12 +480,12 @@
         
         /* Enhanced Cards */
         .card-modern {
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(25, 25, 25, 0.95);
             -webkit-backdrop-filter: blur(25px);
             backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
             transition: all 0.6s var(--anim-timing-ease);
             position: relative;
             overflow: hidden;
@@ -631,21 +633,21 @@
         }
     </style>
 </head>
-<body class="font-sans text-gray-900 bg-white">
+<body class="font-sans text-gray-100 bg-black">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full nav-glass z-50" role="navigation" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center space-x-3">
                     <img src="Logo/NotionMVPLogo.png" alt="Nicer Logo" class="w-8 h-8" aria-hidden="true">
-                    <span class="text-xl font-bold text-gray-900">Nicer</span>
+                    <span class="text-xl font-bold text-white">Nicer</span>
                 </div>
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8" role="menubar">
-                    <a href="#features" class="text-gray-600 hover:text-nicer-green transition-colors" role="menuitem" aria-label="View features">Features</a>
-                    <a href="#how-it-works" class="text-gray-600 hover:text-nicer-green transition-colors" role="menuitem" aria-label="Learn how it works">How it Works</a>
-                    <a href="#faq" class="text-gray-600 hover:text-nicer-green transition-colors" role="menuitem" aria-label="View frequently asked questions">FAQ</a>
+                    <a href="#features" class="text-gray-300 hover:text-nicer-green transition-colors" role="menuitem" aria-label="View features">Features</a>
+                    <a href="#how-it-works" class="text-gray-300 hover:text-nicer-green transition-colors" role="menuitem" aria-label="Learn how it works">How it Works</a>
+                    <a href="#faq" class="text-gray-300 hover:text-nicer-green transition-colors" role="menuitem" aria-label="View frequently asked questions">FAQ</a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
@@ -690,19 +692,19 @@
                 </div>
                 
                 <!-- Hero Content -->
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight px-4">
-                    <span class="hero-title-line-1">Smarter Notion dashboards</span>
-                    <span class="block gradient-text hero-title-line-2">—from your ideas, built by AI, in seconds.</span>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight px-4">
+                    <span class="hero-title-line-1"> Notion Dashboard</span>
+                    <span class="block gradient-text hero-title-line-2">Aesthetic & Smarter</span>
                 </h1>
                 
-                <p class="text-lg sm:text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed hero-subtitle px-4">
+                <p class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed hero-subtitle px-4">
                     Describe any dashboard—Nicer creates it inside your Notion workspace with one click.
                 </p>
                 
                 <!-- CTA Buttons -->
                 <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 hero-buttons px-4">
                     <button onclick="scrollToWaitlist()" class="btn-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-semibold shadow-lg magnetic">
-                        Get Early Access
+                        Join Waitlist
                     </button>
                     <button onclick="scrollToFeatures()" class="btn-secondary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-semibold shadow-lg magnetic">
                         See How It Works
@@ -731,151 +733,66 @@
         
         <div class="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
             <div class="text-center mb-20">
-                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 waitlist-title leading-tight">Join the Waitlist</h2>
-                <p class="text-xl sm:text-2xl text-gray-600 waitlist-subtitle max-w-2xl mx-auto leading-relaxed">Choose your path to early access</p>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 waitlist-title leading-tight">Join the Waitlist</h2>
+                <p class="text-xl sm:text-2xl text-gray-300 waitlist-subtitle max-w-2xl mx-auto leading-relaxed">Get notified when we launch</p>
             </div>
             
-            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
-                <!-- Free Waitlist -->
-                <div class="card-modern p-8 sm:p-10 waitlist-card-free magnetic group hover:scale-105 transition-all duration-700 relative overflow-hidden">
+            <div class="max-w-lg mx-auto">
+                <!-- Google Form Embed -->
+                <div class="card-modern p-6 sm:p-8 waitlist-card-free magnetic group hover:scale-105 transition-all duration-700 relative overflow-hidden">
                     <!-- Liquid gold overlay effect -->
                     <div class="absolute inset-0 bg-gradient-to-br from-transparent via-nicer-light/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-1000"></div>
                     
-                    <div class="text-center mb-8 relative z-10">
+                    <div class="text-center mb-6 relative z-10">
                         <div class="w-16 h-16 bg-gradient-to-br from-nicer-light to-nicer-green/30 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-700 shadow-lg group-hover:shadow-xl">
                             <svg class="w-8 h-8 text-nicer-green group-hover:text-nicer-dark transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                             </svg>
                         </div>
-                        <h3 class="text-3xl font-bold text-gray-900 mb-3 group-hover:text-nicer-dark transition-colors duration-500">Free Waitlist</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-3 group-hover:text-nicer-dark transition-colors duration-500">Join Waitlist</h3>
                         <p class="text-gray-600 text-lg group-hover:text-gray-700 transition-colors duration-500">Get notified when we launch</p>
                     </div>
                     
-                    <form id="freeForm" class="space-y-6" action="https://formspree.io/f/movlkerk" method="POST">
-                        <input type="hidden" name="_redirect" value="https://nicer.app/thank-you.html">
-                        <div class="space-y-3">
-                            <label for="name" class="sr-only">Your name</label>
-                            <input 
-                                type="text" 
-                                id="name"
-                                name="name" 
-                                placeholder="Your name" 
-                                class="w-full input-modern text-lg py-4 px-6 group-hover:border-nicer-green/30 focus:border-nicer-green transition-all duration-300" 
-                                required 
-                                aria-required="true"
-                                aria-describedby="name-error"
-                            >
-                            <div id="name-error" class="text-red-500 text-sm hidden" role="alert"></div>
+                    <!-- Form Container with Loading and Success States -->
+                    <div id="form-container" class="relative">
+                        <!-- Loading Spinner -->
+                        <div id="form-loader" class="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm z-20 transition-opacity duration-300">
+                            <div class="w-12 h-12 rounded-full border-4 border-nicer-light border-t-nicer-green animate-spin"></div>
                         </div>
-                        <div class="space-y-3">
-                            <label for="email" class="sr-only">Your email</label>
-                            <input 
-                                type="email" 
-                                id="email"
-                                name="email" 
-                                placeholder="Your email" 
-                                class="w-full input-modern text-lg py-4 px-6 group-hover:border-nicer-green/30 focus:border-nicer-green transition-all duration-300" 
-                                required 
-                                aria-required="true"
-                                aria-describedby="email-error"
-                            >
-                            <div id="email-error" class="text-red-500 text-sm hidden" role="alert"></div>
+                        
+                        <!-- Success Message (Hidden Initially) -->
+                        <div id="form-success" class="absolute inset-0 flex items-center justify-center bg-white/95 backdrop-blur-sm z-30 hidden">
+                            <div class="text-center py-8 px-6 max-w-md mx-auto">
+                                <div class="w-16 h-16 mx-auto mb-4 bg-nicer-green/20 rounded-full flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-nicer-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Thank you for joining!</h4>
+                                <p class="text-gray-600 mb-4">We'll be in touch soon.</p>
+                                <div class="countdown-timer text-nicer-green font-medium">Redirecting in <span id="countdown">3</span>s</div>
+                            </div>
                         </div>
-                        <button type="submit" class="w-full btn-modern text-lg py-4 font-semibold group-hover:shadow-xl group-hover:shadow-nicer-green/20 transition-all duration-500" aria-describedby="submit-status">
-                            <span class="submit-text">Join Free Waitlist</span>
-                            <span class="loading-text hidden" aria-hidden="true">Joining...</span>
-                        </button>
-                        <div id="submit-status" class="sr-only" role="status" aria-live="polite"></div>
-                    </form>
+                        
+                        <!-- Google Form Iframe -->
+                        <iframe 
+                            id="google-form"
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSeIaAVN6dBwWMl1r05Yvy63oII5qB5t6PumS1O2suEBUGW3Bw/viewform?embedded=true" 
+                            width="100%" 
+                            height="540" 
+                            frameborder="0" 
+                            marginheight="0" 
+                            marginwidth="0"
+                            class="transition-opacity duration-300"
+                            title="Nicer Waitlist Signup Form"
+                        >
+                            Loading form...
+                        </iframe>
+                    </div>
                     
                     <p class="text-sm text-gray-500 mt-6 text-center leading-relaxed">
                         We'll only email you about early access. No spam.
                     </p>
-                </div>
-                
-                <!-- Paid Waitlist -->
-                <div class="bg-gradient-to-br from-nicer-green via-nicer-green/90 to-nicer-dark rounded-3xl p-8 sm:p-10 shadow-2xl text-white waitlist-card-paid magnetic group hover:scale-105 transition-all duration-700 relative overflow-hidden">
-                    <!-- Liquid gold animated background overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-1000"></div>
-                    <div class="absolute inset-0 bg-gradient-to-tl from-nicer-light/10 via-transparent to-nicer-green/20 opacity-0 group-hover:opacity-100 transition-all duration-1200" style="animation-delay: 0.2s;"></div>
-                    
-                    <div class="text-center mb-8 relative z-10">
-                        <div class="w-16 h-16 bg-white/25 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-12 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-white/20">
-                            <svg class="w-8 h-8 text-white group-hover:scale-110 transition-all duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-3xl font-bold mb-3 group-hover:text-white transition-colors duration-500">Pro Founders Club</h3>
-                        <p class="text-white/90 text-lg group-hover:text-white transition-colors duration-500">Get priority early access</p>
-                    </div>
-                    
-                    <!-- Paid Waitlist Form -->
-                    <form id="paidForm" class="space-y-6">
-                        <div class="space-y-3">
-                            <label for="paid-name" class="sr-only">Your name</label>
-                            <input 
-                                type="text" 
-                                id="paid-name"
-                                name="name" 
-                                placeholder="Your name" 
-                                class="w-full paid-input-modern text-lg py-4 px-6" 
-                                required 
-                                aria-required="true"
-                                aria-describedby="paid-name-error"
-                            >
-                            <div id="paid-name-error" class="text-red-300 text-sm hidden" role="alert"></div>
-                        </div>
-                        <div class="space-y-3">
-                            <label for="paid-email" class="sr-only">Your email</label>
-                            <input 
-                                type="email" 
-                                id="paid-email"
-                                name="email" 
-                                placeholder="Your email" 
-                                class="w-full paid-input-modern text-lg py-4 px-6" 
-                                required 
-                                aria-required="true"
-                                aria-describedby="paid-email-error"
-                            >
-                            <div id="paid-email-error" class="text-red-300 text-sm hidden" role="alert"></div>
-                        </div>
-                        
-                        <!-- Plan Selection -->
-                        <div class="space-y-3">
-                            <label class="block text-white/90 text-sm font-medium mb-2">Select your plan:</label>
-                            <div class="grid grid-cols-2 gap-3">
-                                <label class="relative">
-                                    <input type="radio" name="plan" value="monthly" class="sr-only" required>
-                                    <div class="plan-option bg-white/10 border-2 border-white/20 rounded-xl p-4 text-center cursor-pointer transition-all duration-300 hover:bg-white/20 hover:border-white/40">
-                                        <div class="text-white font-semibold">Monthly</div>
-                                        <div class="text-white/80 text-sm">$20/mo</div>
-                                    </div>
-                                </label>
-                                <label class="relative">
-                                    <input type="radio" name="plan" value="yearly" class="sr-only" required>
-                                    <div class="plan-option bg-white/10 border-2 border-white/20 rounded-xl p-4 text-center cursor-pointer transition-all duration-300 hover:bg-white/20 hover:border-white/40">
-                                        <div class="text-white font-semibold">Yearly</div>
-                                        <div class="text-white/80 text-sm">$200/yr</div>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <button type="button" id="joinProButton" class="w-full btn-modern text-lg py-4 font-semibold group-hover:shadow-xl group-hover:shadow-white/20 transition-all duration-500" aria-describedby="paid-submit-status">
-                            <span class="paid-submit-text">Join Pro Founders Club</span>
-                            <span class="paid-loading-text hidden" aria-hidden="true">Processing...</span>
-                        </button>
-                        <div id="paid-submit-status" class="sr-only" role="status" aria-live="polite"></div>
-                    </form>
-                    
-                    <div class="flex items-center justify-center space-x-3 text-sm text-white/80 relative z-10">
-                        <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
-                            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                            </svg>
-                        </div>
-                        <span class="font-medium">Securely handled via Stripe</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -893,8 +810,8 @@
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 features-title">Why Choose Nicer?</h2>
-                <p class="text-lg sm:text-xl text-gray-600 features-subtitle">Everything you need to create stunning Notion dashboards</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4 features-title">Why Choose Nicer?</h2>
+                <p class="text-lg sm:text-xl text-gray-300 features-subtitle">Everything you need to create stunning Notion dashboards</p>
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
@@ -904,8 +821,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">Instant AI Generation</h3>
-                    <p class="text-sm sm:text-base text-gray-600">Generate dashboards from natural language descriptions in seconds</p>
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Instant AI Generation</h3>
+                    <p class="text-sm sm:text-base text-gray-300">Generate dashboards from natural language descriptions in seconds</p>
                 </div>
                 
                 <div class="feature-card card-modern p-6 sm:p-8 text-center magnetic">
@@ -914,8 +831,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">Customize Everything</h3>
-                    <p class="text-sm sm:text-base text-gray-600">Style, widgets, and layout customization in seconds</p>
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Customize Everything</h3>
+                    <p class="text-sm sm:text-base text-gray-300">Style, widgets, and layout customization in seconds</p>
                 </div>
                 
                 <div class="feature-card card-modern p-6 sm:p-8 text-center magnetic">
@@ -924,8 +841,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">No Coding Required</h3>
-                    <p class="text-sm sm:text-base text-gray-600">No templates, no hassle—just describe and create</p>
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">No Coding Required</h3>
+                    <p class="text-sm sm:text-base text-gray-300">No templates, no hassle—just describe and create</p>
                 </div>
                 
                 <div class="feature-card card-modern p-6 sm:p-8 text-center magnetic">
@@ -934,8 +851,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                         </svg>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">Native Notion Integration</h3>
-                    <p class="text-sm sm:text-base text-gray-600">Works seamlessly with your existing Notion workspace</p>
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Native Notion Integration</h3>
+                    <p class="text-sm sm:text-base text-gray-300">Works seamlessly with your existing Notion workspace</p>
                 </div>
             </div>
         </div>
@@ -947,8 +864,8 @@
     <section id="faq" class="py-20 section-light">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-                <p class="text-lg sm:text-xl text-gray-600">Everything you need to know about Nicer</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+                <p class="text-lg sm:text-xl text-gray-300">Everything you need to know about Nicer</p>
             </div>
             
             <div class="space-y-4 sm:space-y-6">
@@ -966,19 +883,7 @@
                     </div>
                 </div>
                 
-                <div class="faq-item bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-                    <button class="faq-toggle w-full px-6 sm:px-8 py-5 sm:py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
-                        <span class="font-semibold text-gray-900 text-base sm:text-lg pr-4">What's the difference between free and paid waitlist?</span>
-                        <div class="w-8 h-8 rounded-full bg-nicer-light flex items-center justify-center transition-all duration-300 flex-shrink-0">
-                            <svg class="w-4 h-4 text-nicer-green transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                            </svg>
-                        </div>
-                    </button>
-                    <div class="faq-content px-6 sm:px-8 pb-6">
-                        <p class="text-gray-600 leading-relaxed">Free waitlist members get notified when we launch publicly. Pro Founders Club members get early access, exclusive features, and priority support.</p>
-                    </div>
-                </div>
+
                 
                 <div class="faq-item bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
                     <button class="faq-toggle w-full px-6 sm:px-8 py-5 sm:py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
@@ -1026,7 +931,7 @@
                 
                 <div class="faq-item bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
                     <button class="faq-toggle w-full px-6 sm:px-8 py-5 sm:py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
-                        <span class="font-semibold text-gray-900 text-base sm:text-lg pr-4">Refund of Pro Founders Club waitlist?</span>
+                        <span class="font-semibold text-gray-900 text-base sm:text-lg pr-4">How can I contact the team?</span>
                         <div class="w-8 h-8 rounded-full bg-nicer-light flex items-center justify-center transition-all duration-300 flex-shrink-0">
                             <svg class="w-4 h-4 text-nicer-green transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
@@ -1034,7 +939,7 @@
                         </div>
                     </button>
                     <div class="faq-content px-6 sm:px-8 pb-6">
-                        <p class="text-gray-600 leading-relaxed">Contact us personally at here: https://www.linkedin.com/in/b2bcasefiles/</p>
+                        <p class="text-gray-600 leading-relaxed">You can reach out to us directly here: <a href="https://www.linkedin.com/in/b2bcasefiles/" class="text-nicer-green hover:underline">LinkedIn Profile</a></p>
                     </div>
                 </div>
 
@@ -1473,108 +1378,152 @@
             }
         });
         
-        // Form submission - let Formspree handle everything
-        const freeForm = document.getElementById('freeForm');
-        if (freeForm) {
-            // Remove any existing event listeners to prevent conflicts
-            freeForm.removeEventListener('submit', freeForm._submitHandler);
+        // Google Form Integration Configuration
+        const GOOGLE_FORM_CONFIG = {
+            redirectUrl: 'https://nicer.app/app', // URL to redirect after form submission
+            countdownSeconds: 3, // Countdown time in seconds before redirect
+            formOrigin: 'https://docs.google.com' // Google Forms origin for message validation
+        };
+        
+        // Initialize Google Form integration
+        function initGoogleFormIntegration() {
+            const formContainer = document.getElementById('form-container');
+            const formLoader = document.getElementById('form-loader');
+            const formSuccess = document.getElementById('form-success');
+            const googleForm = document.getElementById('google-form');
+            const countdownEl = document.getElementById('countdown');
             
-            // Let the form submit naturally to Formspree
-            // Formspree will handle validation and redirect
-        }
-        
-        // Paid form submission with payment redirection
-        const paidForm = document.getElementById('paidForm');
-        const joinProButton = document.getElementById('joinProButton');
-        
-        if (joinProButton) {
-            joinProButton.addEventListener('click', function() {
-                // Validate form
-                const name = document.getElementById('paid-name').value.trim();
-                const email = document.getElementById('paid-email').value.trim();
-                const selectedPlan = document.querySelector('input[name="plan"]:checked');
+            if (!formContainer || !formLoader || !formSuccess || !googleForm || !countdownEl) {
+                console.error('Google Form integration: Required elements not found');
+                return;
+            }
+            
+            let isSubmitted = false;
+            let loadCount = 0;
+            let countdownInterval;
+            
+            // Helper function to show success state and start countdown
+            function showSuccessAndCountdown() {
+                if (isSubmitted) return; // Prevent duplicate execution
+                isSubmitted = true;
                 
-                // Clear previous errors
-                document.querySelectorAll('.text-red-300').forEach(el => el.classList.add('hidden'));
-                
-                let isValid = true;
-                
-                // Validate name
-                if (!name) {
-                    document.getElementById('paid-name-error').textContent = 'Name is required';
-                    document.getElementById('paid-name-error').classList.remove('hidden');
-                    isValid = false;
-                }
-                
-                // Validate email
-                if (!email) {
-                    document.getElementById('paid-email-error').textContent = 'Email is required';
-                    document.getElementById('paid-email-error').classList.remove('hidden');
-                    isValid = false;
-                } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                    document.getElementById('paid-email-error').textContent = 'Please enter a valid email';
-                    document.getElementById('paid-email-error').classList.remove('hidden');
-                    isValid = false;
-                }
-                
-                // Validate plan selection
-                if (!selectedPlan) {
-                    // Show error for plan selection
-                    const planError = document.createElement('div');
-                    planError.className = 'text-red-300 text-sm';
-                    planError.textContent = 'Please select a plan';
-                    document.querySelector('.grid.grid-cols-2').parentNode.appendChild(planError);
-                    isValid = false;
-                }
-                
-                if (isValid) {
-                    // Show loading state
-                    const submitText = this.querySelector('.paid-submit-text');
-                    const loadingText = this.querySelector('.paid-loading-text');
-                    submitText.classList.add('hidden');
-                    loadingText.classList.remove('hidden');
-                    this.disabled = true;
-                    
-                    // Store form data in localStorage for after payment
-                    const formData = {
-                        name: name,
-                        email: email,
-                        plan: selectedPlan.value
-                    };
-                    localStorage.setItem('nicerPaidFormData', JSON.stringify(formData));
-                    
-                    // Redirect to payment based on selected plan
-                    const paymentUrl = selectedPlan.value === 'monthly' 
-                        ? 'https://app-nicer.lemonsqueezy.com/buy/3cd8fe9f-9a10-43f7-a475-4d2a02cade9b'
-                        : 'https://app-nicer.lemonsqueezy.com/buy/0106a30d-9d63-424b-a6e1-0ce26e01d932';
-                    
-                    // Open payment in new window/tab
-                    window.open(paymentUrl, '_blank');
-                    
-                    // Reset form after a short delay
-                    setTimeout(() => {
-                        submitText.classList.remove('hidden');
-                        loadingText.classList.add('hidden');
-                        this.disabled = false;
-                    }, 2000);
-                }
-            });
-        }
-        
-        // Plan selection functionality
-        document.querySelectorAll('input[name="plan"]').forEach(radio => {
-            radio.addEventListener('change', function() {
-                // Remove active class from all plan options
-                document.querySelectorAll('.plan-option').forEach(option => {
-                    option.classList.remove('active');
+                // Show success message with animation
+                gsap.to(formLoader, {
+                    opacity: 0,
+                    duration: 0.3,
+                    onComplete: () => {
+                        formLoader.style.display = 'none';
+                        formSuccess.style.display = 'flex';
+                        gsap.fromTo(formSuccess, 
+                            {opacity: 0, y: 20},
+                            {opacity: 1, y: 0, duration: 0.5, ease: 'power2.out'}
+                        );
+                    }
                 });
                 
-                // Add active class to selected plan option
-                if (this.checked) {
-                    this.nextElementSibling.classList.add('active');
+                // Start countdown
+                let secondsLeft = GOOGLE_FORM_CONFIG.countdownSeconds;
+                countdownEl.textContent = secondsLeft;
+                
+                countdownInterval = setInterval(() => {
+                    secondsLeft -= 1;
+                    countdownEl.textContent = secondsLeft;
+                    
+                    if (secondsLeft <= 0) {
+                        clearInterval(countdownInterval);
+                        window.location.href = GOOGLE_FORM_CONFIG.redirectUrl;
+                    }
+                }, 1000);
+            }
+            
+            // 1. Detect form load
+            googleForm.addEventListener('load', () => {
+                loadCount++;
+                
+                // First load - hide spinner
+                if (loadCount === 1) {
+                    gsap.to(formLoader, {
+                        opacity: 0,
+                        duration: 0.5,
+                        delay: 0.2,
+                        onComplete: () => {
+                            formLoader.style.display = 'none';
+                        }
+                    });
+                }
+                
+                // Second load typically happens after submission
+                if (loadCount >= 2) {
+                    // Check if the form URL contains success indicators
+                    try {
+                        if (googleForm.contentWindow.location.href.includes('formResponse')) {
+                            showSuccessAndCountdown();
+                        }
+                    } catch (e) {
+                        // CORS might prevent accessing the iframe location
+                        console.log('Could not check iframe URL due to CORS');
+                    }
                 }
             });
-        });
+            
+            // 2. Listen for postMessage from Google Form
+            window.addEventListener('message', (event) => {
+                // Verify origin for security
+                if (event.origin !== GOOGLE_FORM_CONFIG.formOrigin) return;
+                
+                // Try to parse the message if it's in JSON format
+                try {
+                    const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
+                    
+                    // Look for submission success indicators
+                    if (
+                        data && 
+                        (data.type === 'form-submit' || 
+                         data.action === 'submit' || 
+                         (typeof data === 'string' && data.includes('submitted')))
+                    ) {
+                        showSuccessAndCountdown();
+                    }
+                } catch (e) {
+                    // If message isn't JSON, check if it contains submission indicators as a string
+                    if (
+                        typeof event.data === 'string' && 
+                        (event.data.includes('submitted') || 
+                         event.data.includes('formResponse') ||
+                         event.data.includes('form-submit'))
+                    ) {
+                        showSuccessAndCountdown();
+                    }
+                }
+            });
+            
+            // Optional: Periodic polling as a fallback
+            // This is a last resort method that polls the iframe URL every second
+            const pollInterval = setInterval(() => {
+                if (isSubmitted) {
+                    clearInterval(pollInterval);
+                    return;
+                }
+                
+                try {
+                    const iframeLocation = googleForm.contentWindow.location.href;
+                    if (iframeLocation.includes('formResponse') || iframeLocation.includes('closedform')) {
+                        showSuccessAndCountdown();
+                    }
+                } catch (e) {
+                    // CORS might prevent accessing the iframe location
+                }
+            }, 1000);
+            
+            // Clean up intervals if page is left
+            window.addEventListener('beforeunload', () => {
+                clearInterval(countdownInterval);
+                clearInterval(pollInterval);
+            });
+        }
+        
+        // Initialize Google Form when DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', initGoogleFormIntegration);
         
 
         
@@ -1646,58 +1595,6 @@
 
         
 
-        
-        // Function to submit paid form data to Formspree after payment
-        window.submitPaidFormToFormspree = function() {
-            const storedData = localStorage.getItem('nicerPaidFormData');
-            if (storedData) {
-                const formData = JSON.parse(storedData);
-                
-                // Create a hidden form to submit to Formspree
-                const form = document.createElement('form');
-                form.method = 'POST';
-                form.action = 'https://formspree.io/f/mjkoaebb';
-                form.style.display = 'none';
-                
-                // Add form fields
-                const nameInput = document.createElement('input');
-                nameInput.type = 'hidden';
-                nameInput.name = 'name';
-                nameInput.value = formData.name;
-                form.appendChild(nameInput);
-                
-                const emailInput = document.createElement('input');
-                emailInput.type = 'hidden';
-                emailInput.name = 'email';
-                emailInput.value = formData.email;
-                form.appendChild(emailInput);
-                
-                const planInput = document.createElement('input');
-                planInput.type = 'hidden';
-                planInput.name = 'plan';
-                planInput.value = formData.plan;
-                form.appendChild(planInput);
-                
-                const redirectInput = document.createElement('input');
-                redirectInput.type = 'hidden';
-                redirectInput.name = '_redirect';
-                redirectInput.value = 'https://nicer.app/thank-you.html';
-                form.appendChild(redirectInput);
-                
-                // Submit the form
-                document.body.appendChild(form);
-                form.submit();
-                
-                // Clean up stored data
-                localStorage.removeItem('nicerPaidFormData');
-            }
-        };
-        
-        // Check if user is returning from payment (you can customize this logic)
-        // This could be triggered by a URL parameter or other mechanism
-        if (window.location.search.includes('payment_success=true')) {
-            window.submitPaidFormToFormspree();
-        }
         
         // Cleanup function for page unload
         window.addEventListener('beforeunload', () => {
