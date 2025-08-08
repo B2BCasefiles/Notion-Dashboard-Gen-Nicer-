@@ -33,7 +33,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -851,7 +852,7 @@
                 <div class="feature-card card-modern p-6 sm:p-8 text-center magnetic">
                     <div class="w-12 h-12 sm:w-16 sm:h-16 bg-nicer-light rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
                         <svg class="w-6 h-6 sm:w-8 sm:h-8 text-nicer-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2A9 9 0 11 3 12a9 9 0 0118 0z"></path>
                         </svg>
                     </div>
                     <h3 class="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">No Coding Required</h3>
@@ -871,7 +872,198 @@
         </div>
     </section>
 
-    <!-- How It Works section removed -->
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-24 section-modern relative overflow-hidden">
+        <!-- Subtle animated background -->
+        <div class="absolute inset-0 pointer-events-none opacity-5">
+            <div class="absolute -top-10 -left-10 w-72 h-72 bg-nicer-green/30 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-nicer-light/40 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="how-title text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">How It Works</h2>
+                <p class="how-subtitle text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">From idea to a beautiful Notion dashboard in minutes</p>
+            </div>
+
+            <!-- Steps -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8 mb-16">
+                <div class="how-step card-modern p-6 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-2xl bg-nicer-light flex items-center justify-center">
+                        <svg class="w-6 h-6 text-nicer-green" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Describe</h3>
+                    <p class="text-gray-300 text-sm">Write what you want. No templates needed.</p>
+                </div>
+                <div class="how-step card-modern p-6 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-2xl bg-nicer-light flex items-center justify-center">
+                        <svg class="w-6 h-6 text-nicer-green" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/></svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Generate</h3>
+                    <p class="text-gray-300 text-sm">AI builds the dashboard layout instantly.</p>
+                </div>
+                <div class="how-step card-modern p-6 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-2xl bg-nicer-light flex items-center justify-center">
+                        <svg class="w-6 h-6 text-nicer-green" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8m-4-4h8"/></svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Customize</h3>
+                    <p class="text-gray-300 text-sm">Tweak style, widgets, and density.</p>
+                </div>
+                <div class="how-step card-modern p-6 text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-2xl bg-nicer-light flex items-center justify-center">
+                        <svg class="w-6 h-6 text-nicer-green" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2A9 9 0 11 3 12a9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Import</h3>
+                    <p class="text-gray-300 text-sm">Send to your Notion workspace.</p>
+                </div>
+            </div>
+
+
+
+                    
+        </div>
+    </section>
+
+    <!-- Product Story: Cinematic Workflow Demo (SVG/Canvas/Three.js) -->
+    <section id="story" class="py-24 section-modern relative overflow-hidden">
+        <div class="absolute inset-0 -z-0 opacity-10 pointer-events-none">
+            <div class="absolute -top-20 -left-10 w-96 h-96 bg-nicer-green/30 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-[32rem] h-[32rem] bg-nicer-light/40 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">Experience Nicer</h2>
+                <p class="text-gray-300 mt-3">A visual journey from idea → AI magic → a beautiful Notion dashboard</p>
+                <div class="mt-6">
+                    <button id="launch-demo" class="btn-modern px-6 py-3" aria-label="Launch the cinematic demo">
+                        Launch Demo
+                    </button>
+                </div>
+            </div>
+            <div id="cinematic-stage" class="relative card-modern rounded-3xl overflow-hidden h-[70vh] sm:h-[72vh] lg:h-[75vh]">
+                <!-- Three.js canvas injected here -->
+                <div id="three-root" class="absolute inset-0 pointer-events-none"></div>
+                <!-- AI particles / confetti canvas -->
+                <canvas id="fx-canvas" class="absolute inset-0 w-full h-full pointer-events-none"></canvas>
+                <!-- SVG Scene Graph -->
+                <svg id="story-svg" viewBox="0 0 1200 700" class="absolute inset-0 w-full h-full" aria-hidden="true" focusable="false">
+                    <defs>
+                        <filter id="soft-glow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+                            <feMerge>
+                                <feMergeNode in="blur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <!-- HERO: brand panel + Notion icon -->
+                    <g id="scene-hero" opacity="0">
+                        <rect x="200" y="120" width="800" height="460" rx="24" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)" />
+                        <rect x="240" y="170" width="320" height="220" rx="16" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.4)" />
+                        <rect x="600" y="170" width="320" height="120" rx="16" fill="rgba(255,255,255,0.06)" />
+                        <rect x="600" y="310" width="320" height="120" rx="16" fill="rgba(255,255,255,0.06)" />
+                        <!-- Notion logo (stylized) -->
+                        <g id="notion-logo" transform="translate(600,340)">
+                            <rect x="-40" y="-40" width="80" height="80" rx="14" fill="#0f172a" stroke="rgba(255,255,255,0.5)" />
+                            <text x="0" y="12" text-anchor="middle" font-size="54" font-family="Inter, system-ui, sans-serif" fill="#10B981">N</text>
+                        </g>
+                    </g>
+                    
+                    <!-- DESCRIBE: typing prompt -->
+                    <g id="scene-describe" opacity="0">
+                        <rect x="260" y="280" width="680" height="100" rx="16" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" />
+                        <text id="describe-text" x="290" y="340" font-size="20" font-family="Inter, system-ui, sans-serif" fill="#d1fae5"></text>
+                    </g>
+
+                    <!-- AI: brain + circuits -->
+                    <g id="scene-ai" opacity="0">
+                        <circle cx="600" cy="340" r="70" fill="rgba(16,185,129,0.12)" stroke="rgba(16,185,129,0.6)" />
+                        <g id="ai-circuits">
+                            <path d="M600 270 C 640 280, 660 300, 670 340" stroke="#10B981" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <path d="M600 270 C 560 280, 540 300, 530 340" stroke="#34d399" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <path d="M530 340 C 540 400, 560 420, 600 410" stroke="#10B981" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <path d="M670 340 C 660 400, 640 420, 600 410" stroke="#34d399" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        </g>
+                    </g>
+
+                    <!-- CUSTOMIZE: sliders + blocks -->
+                    <g id="scene-customize" opacity="0">
+                        <rect x="260" y="220" width="240" height="260" rx="18" fill="rgba(255,255,255,0.06)" />
+                        <rect x="540" y="220" width="380" height="260" rx="18" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.3)" />
+                        <rect id="custom-card-1" x="565" y="250" width="120" height="80" rx="12" fill="rgba(255,255,255,0.12)" />
+                        <rect id="custom-card-2" x="705" y="250" width="190" height="80" rx="12" fill="rgba(255,255,255,0.12)" />
+                        <rect id="custom-card-3" x="565" y="350" width="330" height="100" rx="12" fill="rgba(255,255,255,0.12)" />
+                        <rect id="slider-track" x="280" y="300" width="200" height="8" rx="4" fill="rgba(255,255,255,0.2)" />
+                        <circle id="slider-knob" cx="360" cy="304" r="12" fill="#10B981" />
+                        <rect id="palette" x="300" y="340" width="140" height="28" rx="8" fill="url(#grad1)" />
+                        <defs>
+                            <linearGradient id="grad1" x1="0" x2="1">
+                                <stop offset="0%" stop-color="#10B981"/>
+                                <stop offset="100%" stop-color="#a7f3d0"/>
+                            </linearGradient>
+                        </defs>
+                    </g>
+
+                    <!-- NO CODE: code snippet tossed away -->
+                    <g id="scene-nocode" opacity="0">
+                        <rect x="380" y="280" width="440" height="120" rx="12" fill="rgba(255,255,255,0.06)" />
+                        <text x="600" y="345" text-anchor="middle" font-size="20" font-family="Inter, system-ui, sans-serif" fill="#9ca3af">console.log('Goodbye boilerplate');</text>
+                    </g>
+
+                    <!-- NOTION INTEGRATION -->
+                    <g id="scene-notion" opacity="0">
+                        <rect x="260" y="220" width="680" height="260" rx="18" fill="rgba(255,255,255,0.06)" />
+                        <g id="target-notion" transform="translate(920,350)">
+                            <rect x="-40" y="-40" width="80" height="80" rx="14" fill="#0f172a" stroke="rgba(255,255,255,0.5)" />
+                            <text x="0" y="12" text-anchor="middle" font-size="54" font-family="Inter, system-ui, sans-serif" fill="#10B981">N</text>
+                        </g>
+                        <rect id="import-panel" x="280" y="240" width="320" height="220" rx="14" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.4)" />
+                    </g>
+
+                    <!-- SECURITY -->
+                    <g id="scene-security" opacity="0">
+                        <circle cx="600" cy="340" r="70" fill="rgba(255,255,255,0.06)" />
+                        <path id="shield" d="M600 270 L650 300 L640 360 L600 400 L560 360 L550 300 Z" fill="rgba(16,185,129,0.18)" stroke="#10B981" />
+                        <rect x="590" y="315" width="20" height="28" rx="4" fill="#10B981" />
+                        <circle cx="600" cy="315" r="8" fill="#a7f3d0" />
+                    </g>
+
+                    <!-- DASHBOARD TYPES -->
+                    <g id="scene-types" opacity="0">
+                        <rect x="260" y="230" width="200" height="180" rx="14" fill="rgba(255,255,255,0.08)" />
+                        <rect x="480" y="230" width="200" height="180" rx="14" fill="rgba(255,255,255,0.08)" />
+                        <rect x="700" y="230" width="200" height="180" rx="14" fill="rgba(255,255,255,0.08)" />
+                        <text id="type-label" x="600" y="450" text-anchor="middle" font-size="20" font-family="Inter, system-ui, sans-serif" fill="#d1d5db">Project Tracker</text>
+                    </g>
+
+                    <!-- SIGNUP -->
+                    <g id="scene-signup" opacity="0">
+                        <rect x="420" y="250" width="360" height="140" rx="16" fill="rgba(255,255,255,0.06)" />
+                        <rect x="440" y="290" width="240" height="36" rx="10" fill="rgba(255,255,255,0.1)" />
+                        <rect id="send-btn" x="690" y="290" width="70" height="36" rx="10" fill="#10B981" />
+                        <text x="725" y="314" text-anchor="middle" font-size="14" font-family="Inter, system-ui, sans-serif" fill="#052e1f">Send</text>
+                        <g id="mail" transform="translate(560,260)">
+                            <rect x="-24" y="-12" width="48" height="24" rx="4" fill="#e5fff7" stroke="#10B981" />
+                            <path d="M-24 -12 L0 4 L24 -12" stroke="#10B981" fill="none"/>
+                        </g>
+                    </g>
+                </svg>
+
+                <!-- Cinematic headline overlay -->
+                <div id="epic-headline" class="absolute inset-0 flex items-center justify-center text-center pointer-events-none opacity-0">
+                    <div class="px-6">
+                        <div class="text-white text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
+                            <div id="hl-1" class="mb-2"></div>
+                            <div id="hl-2" class="mb-2 text-nicer-green"></div>
+                            <div id="hl-3" class="opacity-90"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sr-only" id="story-aria" aria-live="polite">Visual story running</div>
+            </div>
+        </div>
+    </section>
 
     <!-- FAQ Section -->
     <section id="faq" class="py-20 section-light">
@@ -973,13 +1165,10 @@
         </div>
     </section>
 
-
-
-
-
+    <script src="nicer-anim.js"></script>
     <script>
         // Register GSAP plugins
-        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, TextPlugin);
         
         // Global animation state to prevent re-initialization
         let animationsInitialized = false;
@@ -1027,6 +1216,7 @@
                 initAnimations();
                 initMagneticEffect();
                 initButtonHovers();
+                initAnchorSmoothScroll();
                 
                 // Add loading state management
                 document.body.classList.add('loaded');
@@ -1572,7 +1762,34 @@
                 }
             });
         }
-        
+
+        // Smooth anchor scrolling for nav links with fixed header offset
+        function initAnchorSmoothScroll() {
+            const headerOffset = 80;
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const target = link.getAttribute('href');
+                    if (!target || target === '#') return;
+                    const exists = document.querySelector(target);
+                    if (!exists) return;
+                    e.preventDefault();
+                    gsap.to(window, {
+                        duration: 0.8,
+                        scrollTo: { y: target, offsetY: headerOffset },
+                        ease: 'power2.inOut'
+                    });
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const mobileMenuButton = document.getElementById('mobile-menu-button');
+                    if (mobileMenu && mobileMenuButton && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+        }
+
         // Professional continuous floating animation for logo
         const logoImg = document.querySelector('.floating');
         if (logoImg) {
