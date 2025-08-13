@@ -1165,10 +1165,25 @@
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="section-light border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-gray-400">&copy; <span id="year"></span> Nicer. All rights reserved.</p>
+            <div class="flex items-center gap-6">
+                <a href="privacy.html" class="text-sm text-gray-300 hover:text-nicer-green transition-colors underline underline-offset-4">Privacy Policy</a>
+                <a href="terms.html" class="text-sm text-gray-300 hover:text-nicer-green transition-colors underline underline-offset-4">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Removed modal overlays: now using standalone pages privacy.html and terms.html -->
+
     <script src="nicer-anim.js"></script>
     <script>
         // Register GSAP plugins
-        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, TextPlugin);
+        if (typeof gsap !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, TextPlugin);
+        }
         
         // Global animation state to prevent re-initialization
         let animationsInitialized = false;
@@ -1202,25 +1217,27 @@
         // Initialize animations when page loads
         document.addEventListener('DOMContentLoaded', () => {
             try {
-                // Check if GSAP is loaded
-                if (typeof gsap === 'undefined') {
+                // Always setup non-animation features
+                                // Footer year
+                const yearEl = document.getElementById('year');
+                if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+                // Initialize animations only if GSAP is available
+                if (typeof gsap !== 'undefined') {
+                    if (!animationsInitialized) {
+                        animationsInitialized = true;
+                        initAnimations();
+                        initMagneticEffect();
+                        initButtonHovers();
+                        initAnchorSmoothScroll();
+                    }
+                } else {
                     console.warn('GSAP not loaded, animations will be disabled');
-                    return;
                 }
-                
-                // Prevent re-initialization
-                if (animationsInitialized) return;
-                animationsInitialized = true;
-                
-                // Initialize with proper error handling
-                initAnimations();
-                initMagneticEffect();
-                initButtonHovers();
-                initAnchorSmoothScroll();
-                
+
                 // Add loading state management
                 document.body.classList.add('loaded');
-                
+
             } catch (error) {
                 console.error('Error initializing page:', error);
                 // Fallback: ensure basic functionality works
@@ -1766,7 +1783,7 @@
         // Smooth anchor scrolling for nav links with fixed header offset
         function initAnchorSmoothScroll() {
             const headerOffset = 80;
-            const links = document.querySelectorAll('a[href^="#"]');
+            const links = document.querySelectorAll('a[href^="#"]:not([data-open-modal])');
             links.forEach(link => {
                 link.addEventListener('click', (e) => {
                     const target = link.getAttribute('href');
@@ -1831,6 +1848,103 @@
             gsap.killTweensOf("*");
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         });
+
+        // Modal open/close helpers
+        function setupModals() {
+            const openButtons = document.querySelectorAll('[data-open-modal]');
+            const closeButtons = document.querySelectorAll('[data-close-modal]');
+
+            window.openModal = function(id) {
+                const modal = document.getElementById(id);
+                if (!modal) return;
+                modal.classList.remove('hidden');
+                modal.setAttribute('aria-hidden', 'false');
+                const card = modal.querySelector('.card-modern');
+                if (card && typeof gsap !== 'undefined') {
+                    gsap.fromTo(card, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: 'power2.out' });
+                }
+                document.documentElement.style.overflow = 'hidden';
+            }
+
+            window.closeModal = function(id) {
+                const modal = document.getElementById(id);
+                if (!modal) return;
+                // Clear hash if it targets this modal so :target fallback doesn't force it visible
+                if (window.location.hash === '#' + id) {
+                    try {
+                        history.replaceState(null, document.title, window.location.pathname + window.location.search);
+                    } catch (e) {
+                        window.location.hash = '';
+                    }
+                }
+                const card = modal.querySelector('.card-modern');
+                if (card && typeof gsap !== 'undefined') {
+                    gsap.to(card, { y: 10, opacity: 0, duration: 0.2, ease: 'power2.in', onComplete: () => {
+                        modal.classList.add('hidden');
+                        modal.setAttribute('aria-hidden', 'true');
+                        document.documentElement.style.overflow = '';
+                    }});
+                } else {
+                    modal.classList.add('hidden');
+                    modal.setAttribute('aria-hidden', 'true');
+                    document.documentElement.style.overflow = '';
+                }
+            }
+
+            openButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-open-modal');
+                    if (id) window.openModal(id);
+                });
+            });
+
+            closeButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-close-modal');
+                    if (id) window.closeModal(id);
+                });
+            });
+
+            // Close on backdrop click
+            document.querySelectorAll('.fixed.inset-0.bg-black.bg-opacity-50').forEach(overlay => {
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) {
+                        const id = overlay.id;
+                        if (id) window.closeModal(id);
+                    }
+                });
+            });
+
+            // Esc key closes any open modal
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    ['privacy-modal', 'terms-modal'].forEach(id => {
+                        const modal = document.getElementById(id);
+                        if (modal && !modal.classList.contains('hidden')) {
+                            window.closeModal(id);
+                        }
+                    });
+                }
+            });
+        }
+
+        // Convenience globals for inline handlers (with fallback if setup hasn't run yet)
+        function openPrivacy() {
+            if (window.openModal) { window.openModal('privacy-modal'); return; }
+            const modal = document.getElementById('privacy-modal');
+            if (!modal) return;
+            modal.classList.remove('hidden');
+            modal.setAttribute('aria-hidden', 'false');
+            document.documentElement.style.overflow = 'hidden';
+        }
+        function openTerms() {
+            if (window.openModal) { window.openModal('terms-modal'); return; }
+            const modal = document.getElementById('terms-modal');
+            if (!modal) return;
+            modal.classList.remove('hidden');
+            modal.setAttribute('aria-hidden', 'false');
+            document.documentElement.style.overflow = 'hidden';
+        }
     </script>
 </body>
 </html>
